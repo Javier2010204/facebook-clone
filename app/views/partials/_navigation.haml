@@ -1,0 +1,19 @@
+#navigation
+    #buscador-container
+        =link_to root_path do
+            =image_pack_tag "logo.png", style:""
+    #options-navigation-container
+        %ul 
+            %li 
+                =link_to root_path do
+                    %i.fas.fa-home 
+            %li 
+                %a(href="#")
+                    %i.fas.fa-users
+            %li 
+                %a(href="#")
+                    %i.fas.fa-store
+    .user-container
+        .user-image-profile
+            =link_to current_user do
+                =image_tag url_for(current_user.avatar)

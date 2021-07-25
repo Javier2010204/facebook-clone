@@ -1,0 +1,30 @@
+.container
+    .new-post-container
+        .user-container
+            .user-image-profile
+                =image_tag url_for(current_user.avatar)
+            .user-post-info
+                %p= current_user.username
+        .new-form-post
+            =render 'posts/form'
+    - @posts.each do |post|
+        .post-container
+            .user-container
+                .user-image-profile
+                    =image_tag url_for(current_user.avatar)
+                .user-post-info
+                    %p= post.user.username
+                    %p= time_ago_in_words(post.created_at)
+            .post-content
+                %p= post.body
+            .reaction-container 
+                .likes
+                    %p 
+                        %i.far.fa-thumbs-up 
+                        %span 250
+                .comments
+                    %p 
+                        %i.far.fa-comments
+                        %span 5
+                        comentarios
+

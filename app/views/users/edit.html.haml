@@ -1,0 +1,14 @@
+%h1 Bienvenido al perfil del usuario
+%p= current_user.email
+=image_tag url_for(current_user.cover)
+=image_tag url_for(current_user.avatar)
+=form_with(model: current_user, local: true) do |form|
+    =form.label :username
+    =form.text_field :username
+    =form.label :bio
+    =form.text_field :bio
+    =form.label :avatar
+    =form.file_field :avatar
+    =form.label :cover
+    =form.file_field :cover
+    =form.submit 'Guardar'

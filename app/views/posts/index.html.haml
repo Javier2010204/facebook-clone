@@ -1,0 +1,27 @@
+.container
+    .new-post-container
+        .user-container
+            .user-image-profile
+            .user-post-info
+                %p= current_user.email
+        .new-form-post
+            =render 'form'
+    - @posts.each do |post|
+        .post-container
+            .user-container
+                .user-image-profile
+                .user-post-info
+                    %p= post.user.email
+                    %p= time_ago_in_words(post.created_at)
+            .post-content
+                %p= post.body
+            .reaction-container 
+                .likes
+                    %p 
+                        %i.far.fa-thumbs-up 
+                        %span 250
+                .comments
+                    %p 
+                        %i.far.fa-comments
+                        %span 5
+                        comentarios

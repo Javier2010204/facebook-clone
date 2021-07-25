@@ -1,0 +1,7 @@
+.profile-container
+    .image-profile-container{style:"background-image: url(#{url_for(current_user.cover)})"}
+        =image_tag url_for(current_user.avatar)
+        =link_to "Editar Perfil", edit_user_path(current_user), class: 'btn-facebook-primary'
+    .info-profile-container
+        %h2= current_user.username
+        %p= current_user.bio

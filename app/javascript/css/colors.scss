@@ -1,0 +1,19 @@
+$colors:(
+    blue: #335AA6,
+    gray: #D9D9D9,
+    secundary-blue: #2A558C,
+    light-blue: #49B1F2,
+    white: #F1F3F8
+);
+
+
+@each $color-name, $color in $colors{
+
+    .#{$color-name}{
+        background-color: $color;
+    }
+
+    .#{$color-name}-text{
+        color: $color;
+    }
+}
