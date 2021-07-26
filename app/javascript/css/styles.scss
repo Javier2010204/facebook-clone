@@ -1,7 +1,10 @@
 @import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
 body{
+    font-size: 18px;
     margin: 0px;   
+    font-family: 'Lexend', sans-serif;
 }
 
 /* Clases de utilidad */
@@ -20,6 +23,14 @@ body{
 
 .radius-10{
     border-radius: 10px;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.font-light{
+    font-weight: lighter;
 }
 
 /* Clases x componente */
