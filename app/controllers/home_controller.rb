@@ -3,4 +3,9 @@ class HomeController < ApplicationController
     @posts = Post.all
     @post = current_user.posts.new
   end
+
+  def unregistered
+    
+  end
+  
 end

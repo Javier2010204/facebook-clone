@@ -1,14 +1,18 @@
-%h1 Bienvenido al perfil del usuario
-%p= current_user.email
-=image_tag url_for(current_user.cover)
-=image_tag url_for(current_user.avatar)
-=form_with(model: current_user, local: true) do |form|
-    =form.label :username
-    =form.text_field :username
-    =form.label :bio
-    =form.text_field :bio
-    =form.label :avatar
-    =form.file_field :avatar
-    =form.label :cover
-    =form.file_field :cover
-    =form.submit 'Guardar'
+.profile-container.gray
+    .card.margin-top
+        %h1.dark-gray-text.font-bold Editar perfil
+        =form_with(model: current_user, local: true, class:'form-edit-content') do |form|
+            .field.margin-top
+                =form.label 'username', class:'light-gray-text font-bold'
+                =form.text_field :username, class:'input-form-facebook', placeholder: 'username'
+            .field.margin-top
+                =form.label 'Texto de biografía', class:'light-gray-text font-bold'
+                =form.text_field :bio, class:'input-form-facebook', placeholder: 'username'
+            .field.margin-top
+                =form.label 'Foto de perfil', class:'light-gray-text font-bold'
+                =form.file_field :avatar, class:'margin-top'
+            .field.margin-top
+                =form.label 'Foto de portada', class:'light-gray-text font-bold'
+                =form.file_field :cover, class:'margin-top'
+            .margin-top
+                =form.submit 'Guardar', class: 'btn-facebook-primary'

@@ -3,16 +3,14 @@
         =link_to root_path do
             =image_pack_tag "logo.png", style:""
     #options-navigation-container
-        %ul 
-            %li 
-                =link_to root_path do
-                    %i.fas.fa-home 
-            %li 
-                %a(href="#")
-                    %i.fas.fa-users
-            %li 
-                %a(href="#")
-                    %i.fas.fa-store
+        =link_to root_path do
+            %i.fas.fa-home.blue-text 
+        %a(href="#")
+            %i.fas.fa-users.blue-text
+        =link_to marketplace_path do
+            %i.fas.fa-store.blue-text 
+        =link_to destroy_user_session_path, method: :delete do
+            %i.fas.fa-power-off.red-text
     .user-container
         .user-image-profile
             =link_to current_user do

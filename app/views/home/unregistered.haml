@@ -1,0 +1,13 @@
+.main-unregistered-container
+    .main-image-container
+        %h2.no-margin.white-text Bienvenido a Facebook
+        = image_pack_tag "media/images/main-unregistered.svg", height: 250
+    .card-container 
+        .card.radius-10
+            %h2.no-margin Crea una cuenta
+            %p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, mollitia?
+            = render 'devise/registrations/new'
+            .margin-top
+                %p 
+                    %span Si ya tienes una cuenta
+                    =link_to 'inicia sesion aquí', new_user_session_path, class:'blue-text'

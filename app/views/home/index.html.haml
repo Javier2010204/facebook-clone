@@ -3,8 +3,8 @@
         .user-container
             .user-image-profile
                 =image_tag url_for(current_user.avatar)
-            .user-post-info
-                %p.font-bold= current_user.username
+            .user-post-info.dark-gray-text
+                =link_to current_user.username, current_user, class:'font-bold dark-gray-text no-decoration'
         .new-form-post
             =render 'posts/form'
     - @posts.each do |post|
@@ -13,17 +13,17 @@
                 .user-image-profile
                     =image_tag url_for(current_user.avatar)
                 .user-post-info
-                    %p.font-bold= post.user.username
+                    =link_to post.user.username, post.user, class:'font-bold dark-gray-text no-decoration'
                     %p.font-light= time_ago_in_words(post.created_at)
             .post-content
                 %p= post.body
-            .reaction-container 
+            .reaction-container
                 .likes
-                    %p 
+                    %p
                         %i.far.fa-thumbs-up 
                         %span 250
                 .comments
-                    %p 
+                    %p
                         %i.far.fa-comments
                         %span 5
                         comentarios
