@@ -12,7 +12,11 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
 
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
+
+    respond_to do |format|
+      format.html { render :show}
+    end
   end
 
   private

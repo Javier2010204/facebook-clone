@@ -7,18 +7,18 @@
             %h2.no-margin Crea una cuenta
             %p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, mollitia?
             = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
-                .field
+                .field.margin-top
                     = f.email_field :email, autofocus: true, autocomplete: "email", class: 'input-form-facebook margin-top', placeholder: 'email'
                 .field
                     = f.password_field :password, autocomplete: "current-password", class: 'input-form-facebook margin-top gray', placeholder: 'contraseña'
                 - if devise_mapping.rememberable? 
-                    .field.margin-top
+                    .field.margin-top.rememberme
                         = f.check_box :remember_me
-                        = f.label 'recordarme'
+                        = f.label 'recordarme', class:'secundary-text'
                 .actions.margin-top
                     = f.submit "Ingresar", class: 'btn-facebook-primary'
             .margin-top
-                %p 
+                %p.margin-top 
                     %span Aún no tengo cuenta
                     =link_to 'crear cuenta aquí', root_path, class:'blue-text'
 

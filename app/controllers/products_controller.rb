@@ -39,6 +39,13 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
+
+        if params[:product][:images].present?
+          params[:product][:images].each do |image|
+            @product.images.attach(image)
+          end
+        end
+
         format.html { redirect_to @product, notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -65,6 +72,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :state, :user_id)
+      params.require(:product).permit(:name, :description, :price, :state, :cover)
     end
 end

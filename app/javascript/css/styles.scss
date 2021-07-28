@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
 body{
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px;   
     font-family: 'Lexend', sans-serif;
 }
@@ -15,6 +15,10 @@ body{
 
 .no-margin{
     margin: 0px;
+}
+
+.no-margin-top{
+    margin-top: 0px;
 }
 
 .margin-top{
@@ -41,13 +45,34 @@ body{
     font-weight: lighter;
 }
 
+.title{
+    font-size: 1.5em;
+}
+
+.secundary-text{
+    font-size: 0.8em;
+}
+
+.normal-font{
+    font-size: 1em;
+}
+
 .full-height{
     height:100vh;
 }
 
 /* Clases x componente */
 
+.main-container{
+    @extend .gray;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .field{
+    @extend .margin-top;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,11 +80,13 @@ body{
 
 .input-form-facebook{
     @extend .gray;
+    font-family: 'Lexend', Sans-serif;
     background-color: #d9d9d9;
     border: none;
     padding: 15px;
     border-radius: 10px;
     width: 80%;
+    font-size: 1em;
 }
 
 .input-form-facebook:focus{
@@ -73,12 +100,19 @@ body{
     @extend .blue;
     @extend .white-text;
     @extend .radius-10;
+    @extend .normal-font;
     padding: 10px 25px;
     border: none;
 }
 
 .btn-facebook-primary:hover{
     @extend .secundary-blue;
+    cursor: pointer;
+}
+
+.rememberme{
+    display: inline-block;
+    margin-top: 1em;
 }
 
 .card{
@@ -306,5 +340,17 @@ body{
                 margin: 0px;
             }
         }
+    }
+}
+
+/* MARKET PLACE */
+
+.products-container{
+    .product-card{
+        @extend .white;
+        @extend .margin-top;
+        @extend .radius-10;
+        height: 300px;
+        width: 300px;
     }
 }

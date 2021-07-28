@@ -1,18 +1,18 @@
 .profile-container.gray
     .card.margin-top
-        %h1.dark-gray-text.font-bold Editar perfil
+        %h1.dark-gray-text.font-bold.title Editar perfil
         =form_with(model: current_user, local: true, class:'form-edit-content') do |form|
             .field.margin-top
-                =form.label 'username', class:'light-gray-text font-bold'
+                =form.label 'username', class:'light-gray-text font-bold secundary-text'
                 =form.text_field :username, class:'input-form-facebook', placeholder: 'username'
             .field.margin-top
-                =form.label 'Texto de biografía', class:'light-gray-text font-bold'
+                =form.label 'Texto de biografía', class:'light-gray-text font-bold secundary-text'
                 =form.text_field :bio, class:'input-form-facebook', placeholder: 'username'
             .field.margin-top
-                =form.label 'Foto de perfil', class:'light-gray-text font-bold'
-                =form.file_field :avatar, class:'margin-top'
+                =form.label 'Foto de perfil', class:'light-gray-text font-bold secundary-text'
+                =form.file_field :avatar, class:''
             .field.margin-top
-                =form.label 'Foto de portada', class:'light-gray-text font-bold'
-                =form.file_field :cover, class:'margin-top'
+                =form.label 'Foto de portada', class:'light-gray-text font-bold secundary-text'
+                =form.file_field :cover, class:''
             .margin-top
                 =form.submit 'Guardar', class: 'btn-facebook-primary'

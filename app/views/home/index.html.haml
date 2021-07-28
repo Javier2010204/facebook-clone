@@ -14,9 +14,9 @@
                     =image_tag url_for(current_user.avatar)
                 .user-post-info
                     =link_to post.user.username, post.user, class:'font-bold dark-gray-text no-decoration'
-                    %p.font-light= time_ago_in_words(post.created_at)
+                    %p.font-light.secundary-text= time_ago_in_words(post.created_at)
             .post-content
-                %p= post.body
+                %p.normal-font= post.body
             .reaction-container
                 .likes
                     %p

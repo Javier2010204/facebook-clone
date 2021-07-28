@@ -7,19 +7,19 @@
           %li= message
 
   .field
-    = f.label :name
-    = f.text_field :name
+    = f.label 'Nombre del producto', class:'secundary-text font-bold light-gray-text'
+    = f.text_field :name, class:'input-form-facebook', placeholder: 'Nombre del producto'
   .field
-    = f.label :description
-    = f.text_area :description
+    = f.label 'Descripción del producto', class:'secundary-text font-bold light-gray-text'
+    = f.text_area :description, class:'input-form-facebook', placeholder:'Describe el color, tamaños, estilos y otros aspectos de tu producto'
   .field
-    = f.label :price
-    = f.text_field :price
+    = f.label 'Precio', class:'secundary-text font-bold light-gray-text'
+    = f.text_field :price, class:'input-form-facebook', placeholder: '00.00'
   .field
-    = f.label :state
-    = f.text_field :state
+    = f.label 'Imagen principal', class:'secundary-text font-bold light-gray-text'
+    = f.file_field :cover
   .field
-    = f.label :user
-    = f.text_field :user
-  .actions
-    = f.submit 'Save'
+    = f.label 'Imagenes de tu producto', class:'secundary-text font-bold light-gray-text'
+    = f.file_field :images, multiple: true
+  .actions.margin-top
+    = f.submit 'Publicar', class:'btn-facebook-primary'
