@@ -1,13 +1,16 @@
 .main-container
   .main-action-container
   .products-container
-    .product-card
-  - @products.each do |product|
-    %td= product.name
-    %td= product.description
-    %td= product.price
-    %td= product.state
-    %td= product.user
-    %td= link_to 'Show', product
-    %td= link_to 'Edit', edit_product_path(product)
-    %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+    - @products.each do |product|
+      .product-card
+        .image-product-cover{style:"background-image:url(#{url_for(product.cover)})"}
+        .info-product
+          =link_to truncate(product.name, length: 50), product, class:'no-decoration dark-gray-text font-bold normal-font'
+          %p.margin-top.light-gray-text= truncate(product.description, length: 50)
+          .price-container.margin-top.dark-gray-text
+            %p.font-bold.title= product.price
+            %i.title.far.fa-heart
+=link_to new_product_path, class:'btn-facebook-primary' do
+  %i.fas.fa-add
+  Agregar producto 
+      

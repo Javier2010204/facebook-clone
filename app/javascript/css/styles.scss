@@ -68,7 +68,7 @@ body{
     display: flex;
     align-items:center;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
 }
 
 .field{
@@ -346,11 +346,39 @@ body{
 /* MARKET PLACE */
 
 .products-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content:center;
+    padding: 25px;
     .product-card{
         @extend .white;
         @extend .margin-top;
         @extend .radius-10;
-        height: 300px;
+        margin-right: 1.5em;
+        height: 350px;
         width: 300px;
+
+        .image-product-cover{
+            @extend .radius-10;
+            height: 60%;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .info-product{
+            padding: 10px;
+
+            h3, p{
+                margin: 0;
+            }
+        }
+
+        .price-container{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+        }
     }
 }
