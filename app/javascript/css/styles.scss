@@ -226,10 +226,17 @@ body{
             bottom: -1em;
         }
 
-        a, button{
+        a, button, p{
             position: absolute;
             right: 1em;
             bottom: 1em;
+        }
+
+        .amistad-enviada{
+            @extend .gray;
+            @extend .dark-gray-text;
+            @extend .large-padding;
+            @extend .radius-10;
         }
     }
 
@@ -379,6 +386,55 @@ body{
             justify-content: space-between;
             align-items: center;
             padding: 5px;
+        }
+    }
+}
+
+/* AMISTADES */
+
+.friends-container{
+
+    .friend{
+        @extend .margin-top;
+        @extend .radius-10;
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        border: 2px solid #D9D9D9;
+        padding: 10px;
+        .friend-image-profile{
+            display: flex;
+            align-items: center;
+            img{
+                height: 100px;
+                width: 100px;
+                background-color: black;
+                border-radius: 50%;
+                margin-right: 1em;
+            }
+        }
+        .buttons-frienships-container{
+            .button{
+                @extend .radius-10;
+                margin-right: 1em;
+                padding: 15px;
+            }
+            .accept-button{
+                @extend .blue;
+                @extend .gray-text;
+            }
+            .accept-button:hover{
+                @extend .gray;
+                @extend .blue-text;
+                border: 2px solid #335AA6;
+            }
+            .reject-button{
+                @extend .gray;
+                @extend .red-text;
+            }
+            .reject-button:hover{
+                border: 2px solid #BF0B2C;
+            }
         }
     }
 }

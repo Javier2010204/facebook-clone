@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-
   before_action :set_user
   
   def show
-    
+    @are_friends = current_user.is_my_friend?(@user)
+    @my_account = current_user.is_my_profile?(@user)
   end
   
   def edit

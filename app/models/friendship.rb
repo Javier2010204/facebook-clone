@@ -3,6 +3,18 @@ class Friendship < ApplicationRecord
   belongs_to :friend, class_name: "User"
   validates :user_id, uniqueness:{scope: :friend_id, message:"Amistad duplicada" }
 
+
+  def self.friends?(user, friend)
+    return true if friend == user
+    Friendship.where(user: user, friend: friend).or(Friendship.where(user: friend, friend: user)).any?
+  end
+
+  def self.pending_for_user(user)
+    Friendship.pending.where(friend: user)
+  end
+  
+  
+
   include AASM
 
   aasm column: "status" do
