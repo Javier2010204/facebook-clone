@@ -17,6 +17,9 @@
     <%else%>
       
     <%end%>
+    <p style="<%= 'display:none' if alert.nil? && notice.nil? %>">
+      <%= alert || notice%>
+    </p>
     <%= yield %>
   </body>
 </html>

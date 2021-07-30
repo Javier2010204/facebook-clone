@@ -1,0 +1,16 @@
+!!!5
+%html
+    %head 
+        %title FacebookClone
+        = csrf_meta_tags
+        = csp_meta_tag
+        %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+        %link{crossorigin: "anonymous", href: "https://pro.fontawesome.com/releases/v5.10.0/css/all.css", integrity: "sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p", rel: "stylesheet"}/
+        = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+        = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %body
+        %p{style:"#{'display:none' if alert.nil? && notice.nil?}"}
+            =alert
+            =notice
+        =yield

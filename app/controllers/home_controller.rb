@@ -7,5 +7,15 @@ class HomeController < ApplicationController
   def unregistered
     
   end
+
+  def set_layout
+    if action_name == "unregistered"
+      return "landing"
+    else
+      super
+    end
+  end
+  
+
   
 end

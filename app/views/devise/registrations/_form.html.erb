@@ -1,6 +1,5 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
+  <%= devise_error_messages! %>
   <div class="field">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-form-facebook", placeholder: "email" %>
   </div>
@@ -11,6 +10,10 @@
 
   <div class="margin-top">
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input-form-facebook", placeholder: "confirmar contraseña"  %>
+  </div>
+
+  <div class="margin-top">
+    <%= f.text_field :username, class:"input-form-facebook", placeholder: "username"  %>
   </div>
 
   <div class="actions margin-top">

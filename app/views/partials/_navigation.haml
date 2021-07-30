@@ -14,4 +14,4 @@
     .user-container
         .user-image-profile
             =link_to current_user do
-                =image_tag url_for(current_user.avatar)
+                =user_avatar(current_user)
