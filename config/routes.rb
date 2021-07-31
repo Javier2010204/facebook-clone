@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :posts, except:[:index]
   devise_for :users
   resources :users
-  resources :friendships
+  resources :friendships, only: [:create, :index, :update]
 
   authenticated :user do
     root to: 'home#index'

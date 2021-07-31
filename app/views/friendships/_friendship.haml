@@ -3,9 +3,5 @@
         =user_avatar(friendship.user)
         =link_to friendship.user.username, friendship.user, class:"normal-text dark-gray-text font-bold no-decoration"
     .buttons-frienships-container 
-        = link_to root_path, class:'button accept-button no-decoration' do
-            %i.fas.fa-check
-            Aceptar
-        = link_to root_path, class:'button reject-button no-decoration' do
-            %i.fas.fa-times
-            Rechazar
+        = link_to 'Aceptar', friendship_path(friendship, status: "1"), method: :patch, class:'button accept-button no-decoration' 
+        = link_to 'Rechazar', friendship_path(friendship, status: "0"), method: :patch, class:'button reject-button no-decoration'
