@@ -8,6 +8,11 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :products
+  has_many :friendships
+  has_many :followers, class_name: "Friendship", foreign_key: "friend_id"
+  
+  has_many :friends_added, through: :friendships, source: :friend
+  has_many :friends_who_added, through: :friendships, source: :user
 
   has_one_attached :avatar
   has_one_attached :cover

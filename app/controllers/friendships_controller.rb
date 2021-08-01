@@ -4,8 +4,10 @@ class FriendshipsController < ApplicationController
 
 
     def index
-        @pending_friendships = Friendship.pending_for_user(current_user)
-        @accepted_friendships = Friendship.accepted_for_user(current_user)
+        @pending_friendships = current_user.followers.pending.decorate
+        @accepted_friendships = current_user.followers.active.decorate
+        @friends = current_user.friendships.active.decorate
+        @pending_requests = current_user.friendships.pending.decorate
     end
 
     def update

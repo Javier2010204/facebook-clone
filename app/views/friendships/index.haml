@@ -7,6 +7,10 @@
         .friends-container
             %h3.secundary-text.dark-gray-text Lista de amigos
             =render @accepted_friendships
+            =render @friends
+        .friends-container
+            %h3.secundary-text.dark-gray-text Mis solicitudes pendientes
+            =render @pending_requests
     
 
     

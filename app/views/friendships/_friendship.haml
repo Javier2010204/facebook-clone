@@ -1,7 +1,6 @@
 .friend
     .friend-image-profile
-        =user_avatar(friendship.user)
-        =link_to friendship.user.username, friendship.user, class:"normal-text dark-gray-text font-bold no-decoration"
+        =user_avatar(friendship.user_view)
+        =link_to friendship.user_view.username, friendship.user, class:"normal-text dark-gray-text font-bold no-decoration"
     .buttons-frienships-container 
-        = link_to 'Aceptar', friendship_path(friendship, status: "1"), method: :patch, class:'button accept-button no-decoration' 
-        = link_to 'Rechazar', friendship_path(friendship, status: "0"), method: :patch, class:'button reject-button no-decoration'
+        = friendship.status_or_buttons

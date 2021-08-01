@@ -198,6 +198,13 @@ body{
     margin-top: 1.5em;
 }
 
+.amistad-enviada{
+    @extend .gray;
+    @extend .dark-gray-text;
+    @extend .large-padding;
+    @extend .radius-10;
+}
+
 .profile-container{
     @extend .gray;
     display: flex;
@@ -230,13 +237,6 @@ body{
             position: absolute;
             right: 1em;
             bottom: 1em;
-        }
-
-        .amistad-enviada{
-            @extend .gray;
-            @extend .dark-gray-text;
-            @extend .large-padding;
-            @extend .radius-10;
         }
     }
 

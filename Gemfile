@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem "haml-rails"
 gem "devise"
 gem "aasm"
+gem "draper"
 
 
 # Reduces boot times through caching; required in config/boot.rb
