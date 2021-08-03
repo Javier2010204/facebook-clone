@@ -6,8 +6,13 @@ class Friendship < ApplicationRecord
 
   def self.friends?(user, friend)
     return true if friend == user
-    Friendship.where(user: user, friend: friend).or(Friendship.where(user: friend, friend: user)).any?
+    Friendship.active.where(user: user, friend: friend).or(Friendship.where(user: friend, friend: user)).any?
   end
+
+  def self.pending_request?(user, friend)
+    Friendship.pending.where(user: user, friend: friend).or(Friendship.where(user: friend, friend: user)).any?
+  end
+  
 
   def self.pending_for_user(user)
     Friendship.pending.where(friend: user)

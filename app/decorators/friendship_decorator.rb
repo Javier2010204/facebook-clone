@@ -4,7 +4,6 @@ class FriendshipDecorator < Draper::Decorator
   def user_view
     (h.current_user == object.user) ? object.friend : object.user
   end
-  
 
   def status_or_buttons
     return buttons if object.pending? && object.user != h.current_user
@@ -12,7 +11,7 @@ class FriendshipDecorator < Draper::Decorator
   end
 
   def status
-    return "Aceptada" if object.active?
+    return "Amigos" if object.active?
     return "Denegada" if object.denied?
     return "Esperando respuesta" if object.pending?
   end

@@ -7,6 +7,8 @@
                 %i.fas.fa-edit.white-text
                 Editar perfil
         -elsif @are_friends
+            %p.amistad-enviada Amigo
+        -elsif @are_pending_request
             %p.amistad-enviada Solicitud de amistad enviada
         -else
             =button_to friendships_path(friend_id: @user.id), method: :post, class: 'btn-facebook-primary no-decoration' do
@@ -14,4 +16,5 @@
                 Agregar a mis amigos
     .info-profile-container.radius-10
         %h2.font-bold.dark-gray-text= @user.username
+        %p.font-bold.dark-gray-text= @user.email
         %p.font-light.light-gray-text= @user.bio
