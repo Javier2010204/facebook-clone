@@ -35,6 +35,11 @@ class User < ApplicationRecord
   def is_pending_request(friend)
     Friendship.pending_request?(self, friend)
   end
+
+  def friendship_status(friend)
+    Friendship.my_status(self, friend)
+  end
+  
   
 
   def is_my_profile?(friend)

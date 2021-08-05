@@ -29,6 +29,7 @@ gem "haml-rails"
 gem "devise"
 gem "aasm"
 gem "draper"
+gem "will_paginate"
 
 
 # Reduces boot times through caching; required in config/boot.rb

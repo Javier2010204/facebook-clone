@@ -1,5 +1,8 @@
 .main-container
-  .main-action-container
+  .margin-top
+    =link_to new_product_path, class:'btn-facebook-primary no-decoration' do
+      %i.fas.fa-add
+      Agregar producto 
   .products-container
     - @products.each do |product|
       .product-card
@@ -10,7 +13,4 @@
           .price-container.margin-top.dark-gray-text
             %p.font-bold.title= product.price
             %i.title.far.fa-heart
-=link_to new_product_path, class:'btn-facebook-primary' do
-  %i.fas.fa-add
-  Agregar producto 
-      
+        
