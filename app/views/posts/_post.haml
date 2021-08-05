@@ -1,4 +1,19 @@
- %div
-    .usuario-post
-    %p= post.email
-    %p= post.body
+.post-container
+   .user-container
+      .user-image-profile
+         =user_avatar(post.user)
+      .user-post-info
+         =link_to post.user.username, post.user, class:'font-bold dark-gray-text no-decoration'
+         %p.font-light.secundary-text= time_ago_in_words(post.created_at)
+   .post-content
+      %p.normal-font= post.body
+   .reaction-container
+      .likes
+         %p
+            %i.far.fa-thumbs-up 
+            %span 250
+      .comments
+         %p
+            %i.far.fa-comments
+            %span 5
+            comentarios

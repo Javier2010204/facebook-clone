@@ -1,4 +1,4 @@
-.container.gray
+.container.gray.large-padding
     .new-post-container
         .user-container
             .user-image-profile
@@ -7,24 +7,7 @@
                 =link_to current_user.username, current_user, class:'font-bold dark-gray-text no-decoration'
         .new-form-post
             =render 'posts/form'
-    - @posts.each do |post|
-        .post-container
-            .user-container
-                .user-image-profile
-                    =user_avatar(post.user)
-                .user-post-info
-                    =link_to post.user.username, post.user, class:'font-bold dark-gray-text no-decoration'
-                    %p.font-light.secundary-text= time_ago_in_words(post.created_at)
-            .post-content
-                %p.normal-font= post.body
-            .reaction-container
-                .likes
-                    %p
-                        %i.far.fa-thumbs-up 
-                        %span 250
-                .comments
-                    %p
-                        %i.far.fa-comments
-                        %span 5
-                        comentarios
+    = render @posts
+    = will_paginate @posts
+        
 

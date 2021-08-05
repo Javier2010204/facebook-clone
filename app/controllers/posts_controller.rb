@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all_post_for_user(current_user)
+    @posts = Post.all_post_for_user(current_user).paginate(page:params[:page], per_page:10)
     @post = current_user.posts.new
   end
 
