@@ -1,3 +1,21 @@
 .main-container
-    =link_to product_path(@product.id, client: true), class: 'btn-facebook-primary margin-top no-decoration' do
-        Ver como cliente
+    .white.large-padding.radius-10
+        %h2.dark-gray-text Administrador de producto
+        .products-images-admin-container
+            - @product.images.each do |image|
+                .product-image-admin.relative
+                    =image_tag image
+                    %p.font-bold.secundary-text.absolute X
+        .info-product-admin
+            %h2.dark-gray-text Información del producto
+            %p.font-bold.dark-gray-text nombre
+            %p.input-form-facebook= @product.name
+            %p.font-bold.dark-gray-text precio
+            %p.input-form-facebook= @product.price
+            %p.font-bold.dark-gray-text descripción
+            %p.input-form-facebook= @product.description
+        .actions-admin.margin-top
+            =link_to edit_product_path(@product.id), class: 'btn-facebook-primary margin-top no-decoration margin-right' do
+                Editar
+            =link_to product_path(@product.id, client: true), class: 'btn-facebook-secundary margin-top no-decoration' do
+                Ver como cliente

@@ -3,7 +3,7 @@
     .product-container
       .images-product
         =image_tag @product.images[0]
-      .info-product.relative
+      .info-product
         %h1.no-margin.title.font-bold.dark-gray-text
           = @product.name
         %h3.no-margin.font-bold.title.dark-gray-text
@@ -15,7 +15,7 @@
             =user_avatar(@product.user)
           .user-post-info
             =link_to @product.user.username, @product.user, class:'font-bold dark-gray-text no-decoration'
-        .buy-button-content.margin-top.absolute
+        .buy-button-content.margin-top.actions-admin
           =link_to 'Comprar', @product, class:'btn-facebook-primary no-decoration'
     .comments-product
 

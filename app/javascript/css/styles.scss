@@ -27,12 +27,16 @@ body{
     margin-top: 1em;
 }
 
+.margin-right{
+    margin-right: 1em;
+}
+
 .box-shadow-card{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .large-padding{
-    padding: 10px 15px;
+    padding: 20px 25px;
 }
 
 .radius-10{
@@ -78,6 +82,7 @@ body{
     display: flex;
     align-items:center;
     flex-direction: column;
+    padding: 20px;
 }
 
 .field{
@@ -116,6 +121,20 @@ body{
 
 .btn-facebook-primary:hover{
     @extend .secundary-blue;
+    cursor: pointer;
+}
+
+.btn-facebook-secundary{
+    @extend .white;
+    @extend .blue-text;
+    @extend .radius-10;
+    @extend .normal-font;
+    padding: 10px 25px;
+    border: 1px solid #335AA6;
+}
+
+.btn-facebook-secundary:hover{
+    background-color: rgba(42, 85, 140, 0.08);
     cursor: pointer;
 }
 
@@ -477,4 +496,28 @@ body{
             }
         }
     }
+}
+
+.products-images-admin-container{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    .product-image-admin{
+        margin-right: 1em;
+        img{
+            @extend .radius-10;
+            height: 300px;
+            width: 300px;
+        }
+        p{
+            top: 0.5em;
+            right: 1em;
+        }
+    }
+}
+
+.actions-admin{
+    margin-top: 3em;
+    margin-bottom: 1em;
 }
