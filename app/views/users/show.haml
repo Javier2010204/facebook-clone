@@ -1,4 +1,4 @@
-.profile-container
+.profile-container.margin-top
     .image-profile-container{style:"background-image: url(#{url_for(@user.cover)})"}
         =user_avatar(@user)
         -# Somos amigos? -> si(muestra el texto)    no -> (muestra el boton)
@@ -6,4 +6,5 @@
     .info-profile-container.radius-10
         %h2.font-bold.dark-gray-text= @user.username
         %p.font-light.light-gray-text= @user.bio
-= render @posts
+.container.gray.large-padding
+    = render @posts
