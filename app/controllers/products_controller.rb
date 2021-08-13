@@ -1,13 +1,36 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy admin ]
 
   # GET /products or /products.json
   def index
-    @products = Product.all.paginate(page:params[:page], per_page:8)
+    @products = Product.all.paginate(page:params[:page], per_page:6)
   end
+
+  def admin
+    
+  end
+  
 
   # GET /products/1 or /products/1.json
   def show
+
+    if user_signed_in? && @product.user == current_user && !params.has_key?(:client)
+      puts "======================="
+      puts "======================="
+      puts "======================="
+      puts "======================="
+      puts "======================="
+      puts "======================="
+      puts "Usuario dueño"
+      render :admin
+    else
+      puts "***********************"
+      puts "***********************"
+      puts "***********************"
+      puts "***********************"
+      puts "***********************"
+      puts "Usuario externo"
+    end
   end
 
   # GET /products/new

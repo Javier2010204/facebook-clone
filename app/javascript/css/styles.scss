@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap');
 
 body{
+    @extend .gray;
     font-size: 16px;
     margin: 0px;   
     font-family: 'Lexend', sans-serif;
@@ -62,6 +63,14 @@ body{
     height:100vh;
 }
 
+.relative{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+}
+
 /* Clases x componente */
 
 .main-container{
@@ -113,6 +122,14 @@ body{
 .rememberme{
     display: inline-block;
     margin-top: 1em;
+}
+
+.product-card{
+    @extend .white;
+    @extend .box-shadow-card;
+    @extend .radius-10;
+    @extend .margin-top;
+    padding: 10px; 
 }
 
 .card{
@@ -252,6 +269,31 @@ body{
 
         h2, p{
             margin: 0;
+        }
+    }
+}
+
+.product-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    .info-product{
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+
+        .buy-button-content{
+            bottom: 10em;
+        }
+    }
+
+    .images-product{
+        @extend .radius-10;
+        img{
+            height: 500px;
+            width: 500px;
+            @extend .radius-10;
         }
     }
 }
