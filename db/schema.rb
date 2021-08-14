@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_011829) do
+ActiveRecord::Schema.define(version: 2021_08_14_151803) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_07_26_011829) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
   create_table "friendships", force: :cascade do |t|
     t.string "status"
     t.integer "user_id", null: false
@@ -51,6 +60,15 @@ ActiveRecord::Schema.define(version: 2021_07_26_011829) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "has_categories", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_has_categories_on_category_id"
+    t.index ["product_id"], name: "index_has_categories_on_product_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -87,7 +105,10 @@ ActiveRecord::Schema.define(version: 2021_07_26_011829) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories", "users"
   add_foreign_key "friendships", "users"
+  add_foreign_key "has_categories", "categories"
+  add_foreign_key "has_categories", "products"
   add_foreign_key "posts", "users"
   add_foreign_key "products", "users"
 end

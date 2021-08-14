@@ -14,7 +14,10 @@
           .user-image-profile
             =user_avatar(@product.user)
           .user-post-info
-            =link_to @product.user.username, @product.user, class:'font-bold dark-gray-text no-decoration'
+            =link_to @product.user.username, @product.user, class:'font-bold dark-gray-text no-decoration light-gray-text'
+        .categories-container 
+          - @product.categories.each do |category|
+            %p= category.name 
         .buy-button-content.margin-top.actions-admin
           =link_to 'Comprar', @product, class:'btn-facebook-primary no-decoration'
     .comments-product

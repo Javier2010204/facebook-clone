@@ -1,0 +1,16 @@
+= form_for @category do |f|
+  - if @category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+      %ul
+        - @category.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label 'nombre de la categoria', class:'secundary-text font-bold light-gray-text'
+    = f.text_field :name, class:'input-form-facebook', placeholder: 'Nombre de la categoria'
+  .field
+    = f.label 'seleccione el color', class:'secundary-text font-bold light-gray-text'
+    = f.color_field :color, class:'input-form-facebook'
+  .actions.margin-top
+    = f.submit 'Guardar', class:'btn-facebook-primary'

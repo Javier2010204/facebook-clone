@@ -23,7 +23,21 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :cover
   has_many_attached :images
-
+  has_many :has_categories
+  has_many :categories, through: :has_categories
+  attr_accessor :category_elements
 
   validates :name, presence: true
+
+
+  def save_categories
+    #ids separados por coma
+    #Convertir eso en arreglo 1,2,3 -> [1,2,3]
+    #Iterar el arreglo
+    category_elements.each do |category_id|
+      HasCategory.find_or_create_by(product: self, category_id: category_id)
+    end
+    #Crear hasCategory
+  end
+  
 end

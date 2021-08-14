@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy admin ]
+  before_action :set_categories, only: %i[new edit]
 
   # GET /products or /products.json
   def index
@@ -15,21 +16,7 @@ class ProductsController < ApplicationController
   def show
 
     if user_signed_in? && @product.user == current_user && !params.has_key?(:client)
-      puts "======================="
-      puts "======================="
-      puts "======================="
-      puts "======================="
-      puts "======================="
-      puts "======================="
-      puts "Usuario dueño"
       render :admin
-    else
-      puts "***********************"
-      puts "***********************"
-      puts "***********************"
-      puts "***********************"
-      puts "***********************"
-      puts "Usuario externo"
     end
   end
 
@@ -44,8 +31,8 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    @product = Product.new(product_params)
-    @product.user = current_user
+    @product = current_user.products.create(product_params)
+    @product.save_categories
 
     respond_to do |format|
       if @product.save
@@ -62,7 +49,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-
+        @product.save_categories
         if params[:product][:images].present?
           params[:product][:images].each do |image|
             @product.images.attach(image)
@@ -95,6 +82,11 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :state, :cover)
+      params.require(:product).permit(:name, :description, :price, :state, :cover, category_elements: [])
     end
+
+    def set_categories
+      @categories = Category.all
+    end
+    
 end

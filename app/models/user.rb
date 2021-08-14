@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :products
+  has_many :categories
   has_many :friendships
   has_many :followers, class_name: "Friendship", foreign_key: "friend_id"
   

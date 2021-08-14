@@ -16,6 +16,11 @@
     = f.label 'Precio', class:'secundary-text font-bold light-gray-text'
     = f.text_field :price, class:'input-form-facebook', placeholder: '00.00'
   .field
+    = f.label 'Categorias', class:'secundary-text font-bold light-gray-text'
+    - @categories.each do |category|
+      = f.check_box :category_elements, {multiple: true}, category.id, nil
+      = category.name
+  .field
     = f.label 'Imagen principal', class:'secundary-text font-bold light-gray-text'
     = f.file_field :cover
   .field

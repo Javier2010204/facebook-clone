@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :categories
   resources :products
   get '/marketplace', to: 'products#index'
   get 'home/index'
