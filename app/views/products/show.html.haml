@@ -2,22 +2,23 @@
   .product-card 
     .product-container
       .images-product
-        =image_tag @product.images[0]
+        - if @product.images.any?
+          =image_tag @product.images.first
       .info-product
         %h1.no-margin.title.font-bold.dark-gray-text
           = @product.name
         %h3.no-margin.font-bold.title.dark-gray-text
           = @product.price
-        %p.normal-font.light-gray-text 
-          = @product.description
-        .user-container
+        .user-container.margin-top
           .user-image-profile
             =user_avatar(@product.user)
           .user-post-info
             =link_to @product.user.username, @product.user, class:'font-bold dark-gray-text no-decoration light-gray-text'
-        .categories-container 
+        %p.normal-font.light-gray-text 
+          = @product.description
+        .categories-container.margin-top 
           - @product.categories.each do |category|
-            %p= category.name 
+            =link_to category.name, category, class:'no-decoration pill', style:"background-color:#{category.color}"
         .buy-button-content.margin-top.actions-admin
           =link_to 'Comprar', @product, class:'btn-facebook-primary no-decoration'
     .comments-product

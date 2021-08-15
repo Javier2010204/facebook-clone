@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-
     if user_signed_in? && @product.user == current_user && !params.has_key?(:client)
       render :admin
     end
@@ -82,7 +81,7 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :state, :cover, category_elements: [])
+      params.require(:product).permit(:name, :description, :price, :state, :cover, category_elements: [], images: [])
     end
 
     def set_categories

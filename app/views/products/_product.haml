@@ -1,0 +1,8 @@
+.product-card
+    .image-product-cover{style:"background-image:url(#{url_for(product.cover)})"}
+    .info-product
+        =link_to truncate(product.name, length: 50), product, class:'no-decoration dark-gray-text font-bold normal-font'
+        %p.margin-top.light-gray-text= truncate(product.description, length: 50)
+        .price-container.margin-top.dark-gray-text
+            %p.font-bold.title= product.price
+            %i.title.far.fa-heart

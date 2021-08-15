@@ -59,6 +59,10 @@ body{
     font-size: 0.8em;
 }
 
+.extra-font{
+    font-size: 3em;
+}
+
 .normal-font{
     font-size: 1em;
 }
@@ -90,6 +94,12 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.pill{
+    padding: 5px;
+    @extend .radius-10;
+    @extend .white-text;
 }
 
 .input-form-facebook{
