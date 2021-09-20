@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_151803) do
+ActiveRecord::Schema.define(version: 2021_09_02_175607) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2021_08_14_151803) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "friendships", force: :cascade do |t|
     t.string "status"
     t.integer "user_id", null: false
@@ -71,6 +82,15 @@ ActiveRecord::Schema.define(version: 2021_08_14_151803) do
     t.index ["product_id"], name: "index_has_categories_on_product_id"
   end
 
+  create_table "in_shopping_carts", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "shopping_cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_in_shopping_carts_on_product_id"
+    t.index ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
@@ -87,7 +107,18 @@ ActiveRecord::Schema.define(version: 2021_08_14_151803) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.string "ip"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -109,6 +140,9 @@ ActiveRecord::Schema.define(version: 2021_08_14_151803) do
   add_foreign_key "friendships", "users"
   add_foreign_key "has_categories", "categories"
   add_foreign_key "has_categories", "products"
+  add_foreign_key "in_shopping_carts", "products"
+  add_foreign_key "in_shopping_carts", "shopping_carts"
   add_foreign_key "posts", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "shopping_carts", "users"
 end

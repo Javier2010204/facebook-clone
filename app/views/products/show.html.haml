@@ -2,8 +2,7 @@
   .product-card 
     .product-container
       .images-product
-        - if @product.images.any?
-          =image_tag @product.images.first
+        = cl_image_tag @product.cover.key if @product.cover.attached?
       .info-product
         %h1.no-margin.title.font-bold.dark-gray-text
           = @product.name

@@ -5,7 +5,7 @@
             - @product.images.each do |image|
                 .product-image-admin.relative
                     =image_tag image
-                    %p.font-bold.secundary-text.absolute X
+                    =link_to "X", delete_image_attachment_product_path(image.signed_id), method: :delete, data:{confirm: 'Esta seguro que desea eliminar la imagen?'}, class: 'delete-icon absolute'
         .info-product-admin
             %h2.dark-gray-text Información del producto
             %p.font-bold.dark-gray-text nombre
@@ -14,6 +14,14 @@
             %p.input-form-facebook= @product.price
             %p.font-bold.dark-gray-text descripción
             %p.input-form-facebook= @product.description
+        .categories-container
+            %p.font-bold.dark-gray-text Categorias
+            .pill-container
+                -@product.categories.each do |category|
+                    .pill.relative{style:"background-color: #{category.color}"}
+                        =category.name
+                        - has_category = HasCategory.where(product: @product, category: category).first
+                        =link_to "X",has_category_path(has_category.id), method: :delete, class: 'delete-icon absolute'
         .actions-admin.margin-top
             =link_to edit_product_path(@product.id), class: 'btn-facebook-primary margin-top no-decoration margin-right' do
                 Editar

@@ -30,6 +30,9 @@ gem "devise"
 gem "aasm"
 gem "draper"
 gem "will_paginate"
+gem "friendly_id"
+gem 'cloudinary'
+gem 'dotenv-rails'
 
 
 # Reduces boot times through caching; required in config/boot.rb

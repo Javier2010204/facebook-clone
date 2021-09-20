@@ -17,14 +17,15 @@
     = f.text_field :price, class:'input-form-facebook', placeholder: '00.00'
   .field
     = f.label 'Categorias', class:'secundary-text font-bold light-gray-text'
-    - @categories.each do |category|
-      = f.check_box :category_elements, {multiple: true}, category.id, nil
-      = category.name
+    .categories-form-container
+      - @categories.each do |category|
+        = f.check_box :category_elements, {multiple: true}, category.id, nil
+        = category.name
   .field
     = f.label 'Imagen principal', class:'secundary-text font-bold light-gray-text'
-    = f.file_field :cover
+    = f.file_field :cover, direct_upload: true
   .field
     = f.label 'Imagenes de tu producto', class:'secundary-text font-bold light-gray-text'
-    = f.file_field :images, multiple: true
+    = f.file_field :images, multiple: true, direct_upload: true
   .actions.margin-top
     = f.submit 'Publicar', class:'btn-facebook-primary'

@@ -15,9 +15,9 @@ module ApplicationHelper
     def user_avatar(user)
 
         if user.avatar.attached?
-            image_tag user.avatar
+            cl_image_tag user.avatar.key
         else
-            image_pack_tag 'default-avatar.jpeg'
+            cl_image_tag("default-profile-image_ajchrk.png")
         end
     end
 

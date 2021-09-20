@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy admin ]
-  before_action :set_categories, only: %i[new edit]
+  before_action :set_product, only: %i[ show edit update destroy admin]
+  before_action :set_categories, only: %i[new edit]  
 
   # GET /products or /products.json
   def index
@@ -8,7 +8,13 @@ class ProductsController < ApplicationController
   end
 
   def admin
-    
+    @this_has_category = HasCategory.where(product: @product, category: category)
+  end
+
+  def delete_image_attachment
+    @image = ActiveStorage::Blob.find_signed(params[:id])
+    @image.attachments.first.purge
+    redirect_back(fallback_location: products_path, notice: 'Imagen eliminada con exito')
   end
   
 
@@ -76,7 +82,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

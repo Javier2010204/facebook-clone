@@ -6,6 +6,7 @@
 #  description :text
 #  name        :string
 #  price       :decimal(, )
+#  slug        :string
 #  state       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -13,6 +14,7 @@
 #
 # Indexes
 #
+#  index_products_on_slug     (slug) UNIQUE
 #  index_products_on_user_id  (user_id)
 #
 # Foreign Keys

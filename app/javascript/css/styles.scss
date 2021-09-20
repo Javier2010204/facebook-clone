@@ -96,10 +96,41 @@ body{
     justify-content: center;
 }
 
+.categories-form-container{
+    display: flex;
+}
+
+.pill-container{
+    display: flex;
+    align-items: center;
+
+}
+
 .pill{
-    padding: 5px;
+    padding: 7px;
+    text-align: center;
+    max-width: 70px;
+    margin-right: 0.5em;
     @extend .radius-10;
     @extend .white-text;
+}
+
+.pill-hover:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.delete-icon{
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+    padding: 5px;
+    border-radius: 50%;
+    @extend .white-text;
+    font-size: 5px;
+    top: -2px;
+    right: -2px;
 }
 
 .input-form-facebook{
