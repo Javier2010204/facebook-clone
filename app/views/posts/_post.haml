@@ -9,9 +9,14 @@
       %p.normal-font= post.body
    .reaction-container
       .likes
-         %p
-            %i.far.fa-thumbs-up 
-            %span 250
+         - if post.liked?(current_user)
+            =button_to like_path(post), method: :put, disabled: true do
+               %i.fas.fa-thumbs-up.blue-text
+         -else
+            =button_to like_path(post), method: :put do
+               %i.far.fa-thumbs-up
+         %span
+            =post.likes.count
       .comments
          %p
             %i.far.fa-comments

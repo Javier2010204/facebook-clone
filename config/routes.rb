@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :friendships, only: [:create, :index, :update]
   resources :has_categories, only: [:destroy]
 
+  put '/post/:id/like', to: 'posts#like', as: :like
+
   resources :products do
     member do
       delete :delete_image_attachment

@@ -37,6 +37,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    puts "Like"
+    @post = Post.find(params[:id])
+    Like.create(user_id: current_user.id, post_id: @post.id)
+    respond_to do |format|
+      format.html{redirect_to :root}
+    end
+  end
+  
+
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
