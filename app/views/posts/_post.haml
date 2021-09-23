@@ -10,7 +10,7 @@
    .reaction-container
       .likes
          - if post.liked?(current_user)
-            =button_to like_path(post), method: :put, disabled: true do
+            =button_to dislike_path(post), method: :delete do
                %i.fas.fa-thumbs-up.blue-text
          -else
             =button_to like_path(post), method: :put do

@@ -45,6 +45,18 @@ class PostsController < ApplicationController
       format.html{redirect_to :root}
     end
   end
+
+  def dislike
+    puts "Dislike"
+    @post = Post.find(params[:id])
+    @like = Like.where(user_id: current_user.id, post_id: @post.id).first
+    @like.destroy
+    respond_to do |format|
+      format.html { redirect_to :root, notice: "Like eliminado con exito" }
+      format.json { head :no_content }
+    end
+
+  end
   
 
   # PATCH/PUT /posts/1 or /posts/1.json
@@ -59,6 +71,8 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  # RUBY 
 
   # DELETE /posts/1 or /posts/1.json
   def destroy

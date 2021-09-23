@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :has_categories, only: [:destroy]
 
   put '/post/:id/like', to: 'posts#like', as: :like
+  delete '/post/:id/dislike', to: 'posts#dislike', as: :dislike
 
   resources :products do
     member do
