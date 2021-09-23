@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :posts do
+    resources :comments
+  end
 
   resources :categories
   get '/marketplace', to: 'products#index'
   get 'home/index'
-  resources :posts, except:[:index]
   devise_for :users
   resources :users
   resources :in_shopping_carts, only: [:create, :destroy]

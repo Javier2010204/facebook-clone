@@ -18,7 +18,8 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_rich_text :body 
 
   scope :last_posts, -> {order("created_at desc")}

@@ -1,12 +1,36 @@
-%p#notice= notice
-
-%p
-  %b Body:
-  = @post.body
-%p
-  %b User:
-  = @post.user
-
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+.container.gray.large-padding
+  .post-container
+    .user-container
+      .user-image-profile
+        =user_avatar(@post.user)
+      .user-post-info
+        =link_to @post.user.username, @post.user, class:'font-bold dark-gray-text no-decoration'
+        %p.font-light.secundary-text= time_ago_in_words(@post.created_at)
+    .post-content
+      %p.normal-font= @post.body
+    .reaction-container
+      .likes
+        - if @post.liked?(current_user)
+          =button_to dislike_path(@post), method: :delete do
+            %i.fas.fa-thumbs-up.blue-text
+            %span
+              =@post.likes.count
+        -else
+          =button_to like_path(@post), method: :put do
+            %i.far.fa-thumbs-up
+            %span
+              =@post.likes.count
+      .comments
+        %p
+          %i.far.fa-comments
+          %span= @post.comments.count
+          comentarios
+.container
+  .new-post-container
+    = render 'comments/form'
+  -@comments.each do |comment|
+    .comment-container
+      .user-container
+        =comment.user
+      .post-content
+        %p.normal-font= comment.body

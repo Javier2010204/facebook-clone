@@ -414,6 +414,33 @@ body{
     }
 }
 
+
+.comment-container{
+    @extend .margin-top;
+    @extend .radius-10;
+    @extend .white;
+    @extend .box-shadow-card;
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+
+    .user-container{
+       @extend .light-gray-text;
+    }
+
+    .comment-content{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+}
+
+
+
+
+
 .main-unregistered-container{
     @extend .light-gray;
 
