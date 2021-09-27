@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   resources :in_shopping_carts, only: [:create, :destroy]
   resources :friendships, only: [:create, :index, :update]
   resources :has_categories, only: [:destroy]
-  resources :chats
+  resources :chats do
+    resources :messages
+  end
   resources :chat_rooms
-  resources :messages
 
   put '/post/:id/like', to: 'posts#like', as: :like
   delete '/post/:id/dislike', to: 'posts#dislike', as: :dislike

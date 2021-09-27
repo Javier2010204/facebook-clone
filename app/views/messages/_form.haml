@@ -1,0 +1,5 @@
+=form_with(model:[@chat, @message], local: true) do |f|
+    .field
+        =f.text_area :content, class:'input-form-facebook', placeholder:'Escribe un mensaje'
+    .actions 
+        =f.submit 'Enviar', class:'btn-facebook-primary'

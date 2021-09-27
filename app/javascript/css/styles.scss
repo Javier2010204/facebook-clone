@@ -19,9 +19,14 @@ body{
     margin-top: 1.5em;
 }
 
+.border-bottom-1{
+    border-bottom: 1px solid #737373;
+}
+
 .box-shadow-card{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+
 
 .cover{
     background-position: center;
@@ -48,6 +53,10 @@ body{
 
 .flex-center-horizontal{
     justify-content: center;
+}
+
+.flex-column{
+    flex-direction: column;
 }
 
 .font-bold{
@@ -299,6 +308,19 @@ textarea{
     @extend .dark-gray-text;
     @extend .large-padding;
     @extend .radius-10;
+}
+
+.card-chat{
+    @extend .margin-top;
+    @extend .radius-10;
+    padding: 20px;
+    width: 30%;
+    background-color: #D9D9D9;
+}
+
+.my-message{
+    background-color: #49B1F2;
+    align-self: flex-end;
 }
 
 
