@@ -1,3 +1,8 @@
--@chats.each do |chat|
-    -chat.chat_rooms.each do |participant|
-        =link_to participant.user.username, chat
+.container.large-padding.gray
+    -@chats.each do |chat|
+        -chat.chat_rooms.each do |participant|
+            .card.margin-top
+                .user-container
+                    .user-image-profile
+                        =user_avatar(participant.user)
+                    =link_to participant.user.username, chat

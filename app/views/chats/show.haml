@@ -1,7 +1,8 @@
--@chat.chat_rooms.each do |participant|
-    -if participant.user != current_user
-        %h1= participant.user.username
--@chat.messages.each do |message|
-    %p
-        = message.content
-        %span= message.user.username
+.container.large-padding.gray
+    -@chat.chat_rooms.each do |participant|
+        -if participant.user != current_user
+            %h1= participant.user.username
+    -@chat.messages.each do |message|
+        %p
+            = message.content
+            %span= message.user.username
