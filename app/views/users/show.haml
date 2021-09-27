@@ -1,8 +1,9 @@
-.profile-container.margin-top
+.container.gray.large-padding
     .image-profile-container{style:"background-image: url(#{url_for(cloudinary_url(@user.cover.key))})"}
         =user_avatar(@user)
         -# Somos amigos? -> si(muestra el texto)    no -> (muestra el boton)
         =@user.test_buttons
-    .info-profile-container.radius-10
+    .flex-center.info-profile-container.radius-10
         %h2.font-bold.dark-gray-text= @user.username
         %p.font-light.light-gray-text= @user.bio
+        %p= @user.id

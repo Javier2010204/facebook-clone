@@ -1,5 +1,5 @@
-.main-container
-    .white.large-padding.radius-10
+.container.large-padding.gray
+    .card.white.radius-10
         %h2.dark-gray-text Administrador de producto
         .products-images-admin-container
             - @product.images.each do |image|
@@ -16,7 +16,7 @@
             %p.input-form-facebook= @product.description
         .categories-container
             %p.font-bold.dark-gray-text Categorias
-            .pill-container
+            .flex.flex-center-vertical
                 -@product.categories.each do |category|
                     .pill.relative{style:"background-color: #{category.color}"}
                         =category.name

@@ -26,9 +26,11 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
+  has_many :chat_rooms
+  has_many :messages
+  has_many :comments
   has_many :posts
   has_many :likes
-  has_many :comments
   has_many :products
   has_many :categories
   has_many :friendships

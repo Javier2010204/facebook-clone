@@ -1,4 +1,4 @@
-.main-container
+.main-container.large-padding
   .product-card 
     .product-container
       .images-product
@@ -15,7 +15,7 @@
             =link_to @product.user.username, @product.user, class:'font-bold dark-gray-text no-decoration light-gray-text'
         %p.normal-font.light-gray-text 
           = @product.description
-        .categories-container.margin-top 
+        .flex.flex-center-vertical.margin-top 
           - @product.categories.each do |category|
             =link_to category.name, category, class:'no-decoration pill', style:"background-color:#{category.color}"
         .buy-button-content.margin-top.actions-admin

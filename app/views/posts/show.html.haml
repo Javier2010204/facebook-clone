@@ -28,9 +28,13 @@
 .container
   .new-post-container
     = render 'comments/form'
-  -@comments.each do |comment|
+  -@post.comments.each do |comment|
     .comment-container
       .user-container
-        =comment.user
+        .user-image-profile
+          =user_avatar(comment.user)
+        .user-post-info
+          =link_to comment.user.username, comment.user, class:'font-bold dark-gray-text no-decoration'
+          %p.font-light.secundary-text= time_ago_in_words(comment.created_at)
       .post-content
         %p.normal-font= comment.body

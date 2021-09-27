@@ -1,4 +1,4 @@
-.main-container
+.container.gray.large-padding
   .margin-top
     =link_to new_product_path, class:'btn-facebook-primary no-decoration' do
       %i.fas.fa-add
@@ -9,6 +9,7 @@
         .image-product-cover{style:"background-image:url(#{url_for(product.cover)})"}
         .info-product
           =link_to truncate(product.name, length: 50), product, class:'no-decoration dark-gray-text font-bold normal-font'
+          %p= product.user.username
           %p.margin-top.light-gray-text= truncate(product.description, length: 50)
           .price-container.margin-top.dark-gray-text
             %p.font-bold.title= product.price

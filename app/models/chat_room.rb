@@ -1,26 +1,25 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: chat_rooms
 #
 #  id         :integer          not null, primary key
-#  body       :text
+#  status     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  post_id    :integer          not null
+#  chat_id    :integer          not null
 #  user_id    :integer          not null
 #
 # Indexes
 #
-#  index_comments_on_post_id  (post_id)
-#  index_comments_on_user_id  (user_id)
+#  index_chat_rooms_on_chat_id  (chat_id)
+#  index_chat_rooms_on_user_id  (user_id)
 #
 # Foreign Keys
 #
-#  post_id  (post_id => posts.id)
+#  chat_id  (chat_id => chats.id)
 #  user_id  (user_id => users.id)
 #
-class Comment < ApplicationRecord
+class ChatRoom < ApplicationRecord
   belongs_to :user
-  belongs_to :post
-  
+  belongs_to :chat
 end

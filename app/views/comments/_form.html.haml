@@ -7,7 +7,6 @@
           %li= message
 
   .field
-    = f.label :body
-    = f.text_area :body
+    = f.text_area :body, class:'input-form-facebook', placeholder:'Escribe un comentario'
   .actions
-    = f.submit 'Guardar'
+    = f.submit 'Comentar', class:'btn-facebook-primary margin-top'
