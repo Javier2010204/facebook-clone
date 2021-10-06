@@ -1,5 +1,6 @@
-=form_with(model:[@chat, @message], local: true) do |f|
-    .field
+=form_with(model:[@chat, @message], local: true, class:'form-messages') do |f|
+    .fields
         =f.text_area :content, class:'input-form-facebook', placeholder:'Escribe un mensaje'
     .actions 
-        =f.submit 'Enviar', class:'btn-facebook-primary'
+        =button_tag(type: 'submit',class:'send-message-button' ) do
+            %i.fas.fa-paper-plane

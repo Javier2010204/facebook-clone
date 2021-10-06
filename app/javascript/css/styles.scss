@@ -211,6 +211,11 @@ textarea{
     }
 }
 
+.message-form-container{
+    position: fixed;
+    bottom: 1em;
+}
+
 .rememberme{
     display: inline-block;
     margin-top: 1em;
@@ -310,12 +315,65 @@ textarea{
     @extend .radius-10;
 }
 
-.card-chat{
+.message-container{
     @extend .margin-top;
     @extend .radius-10;
     padding: 20px;
     width: 30%;
-    background-color: #D9D9D9;
+    background-color: #343840;
+}
+
+.header-chat{
+    @extend .large-padding;
+    @extend .radius-10;
+    background-color: #F1F3F8;
+}
+
+.chat-container{
+    @extend .radius-10;
+    @extend .margin-top;
+    background-color: #F1F3F8;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.form-chat{
+    @extend .radius-10;
+    @extend .margin-top;
+    @extend .large-padding;
+    background-color: #F1F3F8;
+
+    .form-messages{
+        display: flex;
+        align-items: center;
+
+        .fields{
+            width: 100%;
+            
+            .input-form-facebook{
+                width: 90%;
+            }
+        }
+
+        .actions{
+            width: 10%;
+
+            .send-message-button{
+                background-color: #335AA6;
+                color: #F1F3F8;
+                border-radius: 50%;
+                border: none;
+                width:70px;
+                height:70px;
+                cursor: pointer;
+                font-size: 1.5em;
+            }
+        }
+    }
+    
 }
 
 .my-message{

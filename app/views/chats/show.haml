@@ -1,16 +1,14 @@
-.container.large-padding.gray
-    .card.white.flex.flex-column
-        -@chat.chat_rooms.each do |participant|
-            -if participant.user != current_user
-                .user-container.border-bottom-1
-                    .user-image-profile
-                        =user_avatar(participant.user)
-                    %h2.font-bold.title.dark-gray-text= participant.user.username
+.large-padding.gray
+    -@chat.chat_rooms.each do |participant|
+        -if participant.user != current_user
+            .header-chat
+                %h2= participant.user.username
+    .chat-container
+        .user-container
+            .user-image
         -@chat.messages.each do |message|
-            .card-chat.black-text.font-bold{class: "#{'my-message' if current_user == message.user}"}
-                .user-info
-                .message-content
-                = message.content
-            %p.light-gray-text.no-margin.font-light{style: "#{'align-self: flex-end' if current_user == message.user}"}=time_ago_in_words(message.created_at)
-    .card.white
+            .message-container{class: "#{'my-message' if current_user == message.user}"}
+                %p.white-text= message.content
+            %p.no-margin.light-gray-text{style: "#{'align-self:flex-end;' if current_user == message.user}"}= time_ago_in_words(message.created_at)
+    .form-chat
         =render 'messages/form'
