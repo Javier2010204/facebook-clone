@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+    before_action :authenticate_user!
     before_action :find_friend, except: [:index, :update]
     before_action :find_friendship, only: [:update]
 
